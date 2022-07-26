@@ -16,7 +16,6 @@ class Rectangle:
         self.height = height
         type(self).number_of_instances += 1
 
-
     def __str__(self):
         """
         Defines the printable representation of the Rectangle
