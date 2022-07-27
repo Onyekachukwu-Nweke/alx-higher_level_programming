@@ -1,0 +1,59 @@
+How to use module ``5-text_indentation``
+========================================
+
+This module prints two new lines if any of
+this characters ``.?:`` is encountered
+
+Usage
+=====
+
+::
+
+	>>> text_indent = __import__('5-text_indentation').text_indentation
+	>>> text_indent("Hello?")
+	Hello?
+
+No spaces are printed at the beginning of the line
+
+::
+
+	>>> text_indent("	Hi Hacker.")
+	Hi Hacker.
+
+Similarly, no spaces are printed are the end of each printed line
+
+::
+
+	>>> text_indent("Number 1 Hacker way.   ")
+	Number 1 Hacker way.
+	<BLANKLINE>
+
+Comibined Examples
+
+::
+
+	>>> text_indent("Printed locust:\nFocus on the game, Man know thy self. "
+	... "Do you know yourself?") # docctest: +NORMALIZE_WHITESPACE
+	Printed locust:
+	<BLANKLINE>
+	<BLANKLINE>
+	Focus on the game, Man know thy self.
+	<BLANKLINE>
+	Do you know yourself?
+
+Invalid Argument
+================
+
+The parameter ``text`` must be a string. Otherwise, a TypeError is raised
+
+::
+
+	>>> text_indent(5)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+::
+
+	>>> text_indent(None)
+	Traceback (most recent call last):
+	TypeError: text must be a string
