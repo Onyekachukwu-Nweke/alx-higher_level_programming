@@ -33,7 +33,7 @@ Now use it:
     >>> a.print_sorted()
     Traceback (most recent call last):
         ...
-    TypeError: unorderable types: str() < int()
+    TypeError: '<' not supported between instances of 'str' and 'int'
 
     >>> b = MyList()
     >>> b.append(4)
