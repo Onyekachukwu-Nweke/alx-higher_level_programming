@@ -643,8 +643,6 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s1 = Square(10, 2, 1, 2)
         s2 = Square(1, 2, 10)
         s2.update(**s1.to_dictionary())
-        print(str(s2))
-        print(str(s1))
         self.assertNotEqual(s1, s2)
 
     def test_to_dictionary_arg(self):
