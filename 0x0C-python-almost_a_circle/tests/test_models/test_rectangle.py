@@ -109,6 +109,11 @@ class TestRectangle_stdout(unittest.TestCase):
         with self.assertRaises(TypeError):
             r.display(1)
 
+class TestRectangle_update(unittest.TestCase):
+    """This class tests for the update in the Rectangle class"""
+
+    
+
 
 if __name__ == '__main__':
     unittest.main()
