@@ -84,9 +84,14 @@ class Rectangle(Base):
         This function shows the representation
         of the square using the ``#`` character
         """
-        for _ in range(self.__height):
-            for _ in range(self.__width):
-                print("#", end="")
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+        
+        [print("") for _ in range(self.y)]
+        for _ in range(self.height):
+            [print(" ", end="") for _ in range(self.x)]
+            [print("#", end="") for _ in range(self.width)]
             print("")
 
     def __str__(self):
