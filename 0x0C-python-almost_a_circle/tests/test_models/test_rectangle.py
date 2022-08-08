@@ -13,11 +13,17 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_is_base(self):
         self.assertIsInstance(Rectangle(2, 5), Base)
 
-    def test_initialization(self):
+    def test_rectangle_initialization(self):
         r1 = Rectangle(2,5)
         self.assertEqual(r1.id, Rectangle._Base__nb_objects)
         r2 = Rectangle(1,2)
         self.assertEqual(r2.id, Rectangle._Base__nb_objects)
+
+    def test_rectangle_area(self):
+        r1 = Rectangle(3, 6)
+        self.assertEqual(r1.area(), 18)
+        r2 = Rectangle(10, 30)
+        self.assertEqual(r2.area(), 300)
 
 
 if __name__ == '__main__':
