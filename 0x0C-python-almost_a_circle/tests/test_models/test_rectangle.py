@@ -15,9 +15,9 @@ class TestRectangle(unittest.TestCase):
         self.assertIsInstance(Rectangle(2, 5), Base)
 
     def test_rectangle_initialization(self):
-        r1 = Rectangle(2,5)
+        r1 = Rectangle(2, 5)
         self.assertEqual(r1.id, Rectangle._Base__nb_objects)
-        r2 = Rectangle(1,2)
+        r2 = Rectangle(1, 2)
         self.assertEqual(r2.id, Rectangle._Base__nb_objects)
 
     def test_rectangle_area(self):
@@ -25,6 +25,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.area(), 18)
         r2 = Rectangle(10, 30)
         self.assertEqual(r2.area(), 300)
+
 
 class TestRectangle_stdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Rectangle class."""
@@ -108,6 +109,7 @@ class TestRectangle_stdout(unittest.TestCase):
         r = Rectangle(5, 1, 2, 4, 7)
         with self.assertRaises(TypeError):
             r.display(1)
+
 
 class TestRectangle_update_args(unittest.TestCase):
     """Unittests for testing update args method of the Rectangle class."""
@@ -377,6 +379,7 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
 
 if __name__ == '__main__':
     unittest.main()

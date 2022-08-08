@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module is all about unittests
 """
@@ -6,6 +7,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+
 
 class TestBase_instantiation(unittest.TestCase):
     """Unittests for testing the instantiation of the Base Class"""
@@ -22,7 +24,7 @@ class TestBase_instantiation(unittest.TestCase):
         self.assertAlmostEqual(a.id, b.id - 1)
         self.assertAlmostEqual(a.id, c.id - 2)
 
-    def test_uniq_id(self): 
+    def test_uniq_id(self):
         a = Base(12)
         c = Base()
         c.id = 12
@@ -34,6 +36,7 @@ class TestBase_instantiation(unittest.TestCase):
         b = Base(12)
         c = Base()
         self.assertAlmostEqual(a.id, c.id - 1)
+
 
 class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
@@ -79,6 +82,7 @@ class TestBase_to_json_string(unittest.TestCase):
     def test_to_json_string_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.to_json_string([], 1)
+
 
 class TestBase_save_to_file(unittest.TestCase):
     """Unittests for testing save_to_file method of Base class."""
@@ -157,6 +161,7 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
+
 class TestBase_from_json_string(unittest.TestCase):
     """Unittests for testing from_json_string method of Base class."""
 
@@ -210,8 +215,11 @@ class TestBase_from_json_string(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
 
+
 class TestBase_create(unittest.TestCase):
-    """Unittests for testing create method of Base class."""
+    """
+    Unittests for testing create method of Base class.
+    """
 
     def test_create_rectangle_original(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
@@ -261,8 +269,11 @@ class TestBase_create(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertNotEqual(s1, s2)
 
+
 class TestBase_load_from_file(unittest.TestCase):
-    """Unittests for testing load_from_file_method of Base class."""
+    """
+    Unittests for testing load_from_file_method of Base class.
+    """
 
     @classmethod
     def tearDown(self):
@@ -325,6 +336,7 @@ class TestBase_load_from_file(unittest.TestCase):
     def test_load_from_file_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Base.load_from_file([], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
