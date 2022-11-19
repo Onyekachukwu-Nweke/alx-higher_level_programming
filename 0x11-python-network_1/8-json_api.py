@@ -18,7 +18,7 @@ if __name__ == "__main__":
     if len(argv) > 1:
         value = {'q': argv[1]}
         response = requests.post('http://0.0.0.0:5000/search_user', data=value)
-        content_type = requests.headers.get('Content-Type')
+        content_type = response.headers.get('Content-Type')
         if content_type == 'application/json':
             dict_cnt = eval(response.content)
             if (dict_cnt) != {}:
