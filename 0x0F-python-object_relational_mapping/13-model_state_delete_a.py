@@ -28,6 +28,6 @@ if __name__ == "__main__":
     search = State.name.like('%a%')
     states = session.query(State).filter(search).order_by(State.id).all()
     for state in states:
-            session.delete(state)
+        session.delete(state)
     session.commit()
     session.close()
