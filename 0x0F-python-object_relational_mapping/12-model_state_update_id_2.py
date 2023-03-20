@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Write a script that inserts a State objects into
+Write a script that updates a State objects in
 the database hbtn_0e_6_usa
 """
 from sys import argv
@@ -22,9 +22,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    
     state = session.query(State).filter_by(id=2).first()
     state.name = "New Mexico"
     session.commit()
-
     session.close()
