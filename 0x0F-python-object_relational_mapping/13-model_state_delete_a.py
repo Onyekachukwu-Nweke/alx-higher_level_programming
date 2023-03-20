@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
-Write a script that updates a State objects in
-the database hbtn_0e_6_usa
+Deletes all State objects with a name containing
+the letter a from the database hbtn_0e_6_usa.
+Usage: ./13-model_state_delete_a.py <mysql username> /
+                                    <mysql password> /
+                                    <database name>
 """
 from sys import argv
 from sqlalchemy import create_engine
@@ -22,8 +25,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State):
-        if "a" in state.name:
+    search = State.name.like('%a%')
+    states = session.query(State).filter(search).order_by(State.id).all()
+    for state in states:
             session.delete(state)
     session.commit()
     session.close()
